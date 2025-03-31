@@ -46,3 +46,7 @@ logging:
 rsa:
   public-key: classpath:keys/public.pem
   private-key: classpath:keys/private.pem
+
+springdoc:
+  swagger-ui:
+    path: /docs
