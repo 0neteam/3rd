@@ -13,7 +13,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 @Tag(name = "HOME", description = "HomeController method")
 public interface HomeControllerDocs {
 
-    @Operation(summary = "test 메서드", description = "데이터 잘 전달되는지 확인할라구 만들어본 메서드임")
+    @Operation(operationId="testID", summary = "test 메서드", description = "데이터 잘 전달되는지 확인할라구 만들어본 메서드임", tags = "a")
     @Parameters(value = {
             @Parameter(name="txt", description = "res1에 들어가는 값이구연"),
             @Parameter(name="txt2", description = "이건 2에 드가겠지연?"),
@@ -22,4 +22,7 @@ public interface HomeControllerDocs {
             description = "테스트 성공 응답",
             content = @Content(schema = @Schema(implementation = ResTestDTO.class)))
     public ResTestDTO test(String txt, String txt2);
+
+    @Operation(operationId="testID", summary = "test2 메서드", description = "22222", tags = "a")
+    public ResTestDTO idtest();
 }

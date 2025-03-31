@@ -50,3 +50,4 @@ rsa:
 springdoc:
   swagger-ui:
     path: /docs
+    display-operation-id: true
