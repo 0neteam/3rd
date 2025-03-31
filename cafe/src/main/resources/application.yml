@@ -1,0 +1,48 @@
+spring:
+
+  application:
+    name: cafe
+  config:
+    # ENV ??
+    import: optional:file:.env[.properties]
+
+  # database ??
+  datasource:
+    driver-class-name: ${DB_DRIVER}
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+
+  jpa:
+    hibernate.ddl-auto: none
+    properties.hibernate:
+      show_sql: true
+      format_sql: true
+    hibernate:
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+  # file size ??
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+  # ??? ??
+server:
+  port: 8001
+
+# log level ??
+logging:
+  level:
+    org:
+      springframework:
+        web: INFO
+        security: trace
+        hibernate.sql: debug
+      thymeleaf: INFO
+
+rsa:
+  public-key: classpath:keys/public.pem
+  private-key: classpath:keys/private.pem
