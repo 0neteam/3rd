@@ -14,7 +14,7 @@ public class HomeController implements HomeControllerDocs{
 
     @GetMapping("/")
     public ResTestDTO test(@RequestParam String txt, @RequestParam String txt2){
-        ResTestDTO res1 = ResTestDTO.builder().msg("1차로 이거 넣어보고연").no(1).data(txt).build();
+        ResTestDTO res1 = ResTestDTO.builder().no(1).data(txt).build();
         ResTestDTO res2 = ResTestDTO.builder().msg("2차로 이거 넣어보고연").no(2).data(txt2).build();
         List<ResTestDTO> res3data = new ArrayList<>();
         res3data.add(res1);
@@ -22,5 +22,9 @@ public class HomeController implements HomeControllerDocs{
         ResTestDTO res3 = ResTestDTO.builder().msg("해치웠구연~").no(3).data(res3data).build();
 
         return res3;
+    }
+    @GetMapping("/test")
+    public ResTestDTO idtest(){
+        return ResTestDTO.builder().msg("1차로 이거 넣어보고연").no(1).data("txt").build();
     }
 }
