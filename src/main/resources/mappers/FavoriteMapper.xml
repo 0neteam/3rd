@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.app.giticon_pr.mapper.FavoriteMapper">
+
+  <!-- ✅ 유저가 찜한 기프티콘 전체 조회 -->
+  <select id="findAllByUserId" parameterType="long" resultType="com.app.giticon_pr.model.Gifticon">
+    SELECT g.*
+    FROM favorite f
+    JOIN gifticon g ON f.gifticon_id = g.id
+    WHERE f.user_id = #{userId}
+  </select>
+
+<insert id="insert" parameterType="com.app.giticon_pr.model.Favorite" useGeneratedKeys="true" keyProperty="id">
+  INSERT INTO favorite (user_id, gifticon_id)
+  SELECT #{userId}, #{gifticonId}
+  FROM DUAL
+  WHERE NOT EXISTS (
+    SELECT 1 FROM favorite WHERE user_id = #{userId} AND gifticon_id = #{gifticonId}
+  )
+</insert>
+  <!-- ✅ 찜 삭제 (id 기준) -->
+  <delete id="deleteById" parameterType="long">
+    DELETE FROM favorite
+    WHERE id = #{id}
+  </delete>
+
+  <!-- ✅ 찜 삭제 (user_id + gifticon_id 기준) -->
+  <delete id="deleteByUserAndGifticon" parameterType="map">
+    DELETE FROM favorite
+    WHERE user_id = #{userId}
+      AND gifticon_id = #{gifticonId}
+  </delete>
+
+</mapper>
+
