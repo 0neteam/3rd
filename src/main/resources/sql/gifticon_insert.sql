@@ -1,4 +1,4 @@
-50개 더미 데이터 삽입
+-- 50개 더미 데이터 삽입
 INSERT INTO gifticon (id, name, brand, face_value, price, image_url, expire_date)
 VALUES
 (1, '배달의민족 상품권 15000원권', '배달의민족', 15000, 11800, 'https://example.com/images/baemin.jpg', '2025-04-27'),
@@ -52,8 +52,8 @@ VALUES
 (49, '투썸플레이스 상품권 10000원권', '투썸플레이스', 10000, 6200, 'https://example.com/images/twosome.jpg', '2026-08-20'),
 (50, '이디야 상품권 30000원권', '이디야', 30000, 25100, 'https://example.com/images/ediya.jpg', '2026-08-30');
 
--- 3. 데이터 50개 출력 확인
+-- 데이터 50개 출력 확인
 SELECT * FROM gifticon ORDER BY id LIMIT 50;
 
--- 4. 개수 확인 (결과: 50)
+--  개수 확인 (결과: 50)
 SELECT COUNT(*) FROM gifticon;

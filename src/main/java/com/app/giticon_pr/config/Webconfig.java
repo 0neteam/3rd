@@ -9,7 +9,7 @@ public class Webconfig implements WebMvcConfigurer { // ✅ 클래스명은 관�
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**") // 모든 경로 허용
-                .allowedOrigins("http://localhost:3000") // 프론트엔드 주소
+                .allowedOrigins("http://localhost:3000","http://192.168.0.235:3000") // 프론트엔드 주소
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // 명시적으로 작성 권장
                 .allowedHeaders("*")
                 .allowCredentials(true);
