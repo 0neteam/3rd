@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.app.giticon_pr.mapper.GifticonMapper">
+
+  <!-- 전체 조회 -->
+  <select id="findAll" resultType="com.app.giticon_pr.model.Gifticon">
+    SELECT * FROM gifticon
+  </select>
+
+  <!-- 브랜드로 조회 -->
+  <select id="findByBrand" parameterType="string" resultType="com.app.giticon_pr.model.Gifticon">
+    SELECT * FROM gifticon
+    WHERE brand = #{brand}
+  </select>
+
+  <!-- 키워드로 이름 검색 -->
+  <select id="searchByKeyword" parameterType="string" resultType="com.app.giticon_pr.model.Gifticon">
+    SELECT * FROM gifticon
+    WHERE name LIKE CONCAT('%', #{keyword}, '%')
+  </select>
+
+  <!-- ID로 조회 -->
+  <select id="findById" parameterType="long" resultType="com.app.giticon_pr.model.Gifticon">
+    SELECT * FROM gifticon
+    WHERE id = #{id}
+  </select>
+
+  <!-- 등록 -->
+  <insert id="insert" parameterType="com.app.giticon_pr.model.Gifticon" useGeneratedKeys="true" keyProperty="id">
+    INSERT INTO gifticon (
+      name, brand, price, face_value, image_url, expire_date
+    )
+    VALUES (
+      #{name}, #{brand}, #{price}, #{faceValue}, #{imageUrl}, #{expireDate}
+    )
+  </insert>
+
+  <!-- 수정 -->
+  <update id="update" parameterType="com.app.giticon_pr.model.Gifticon">
+    UPDATE gifticon
+    SET name        = #{name},
+        brand       = #{brand},
+        price       = #{price},
+        face_value  = #{faceValue},
+        image_url   = #{imageUrl},
+        expire_date = #{expireDate}
+    WHERE id = #{id}
+  </update>
+
+  <!-- 삭제 -->
+  <delete id="deleteById" parameterType="long">
+    DELETE FROM gifticon
+    WHERE id = #{id}
+  </delete>
+
+</mapper>

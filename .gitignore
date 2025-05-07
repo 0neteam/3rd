@@ -1,0 +1,60 @@
+# 🌱 Git 도움말 파일
+HELP.md
+
+# 🔨 Gradle 관련
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# 🌸 Spring Tool Suite (STS)
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+# 💡 IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+# 🧱 NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# 🧩 Visual Studio Code
+.vscode/
+
+# 💻 OS 자동 생성 파일
+.DS_Store
+Thumbs.db
+
+# 🔐 환경 변수 파일
+.env
+.env.*
+.env.local
+
+# ⚛️ React 프론트엔드 관련
+frontend/node_modules/
+frontend/build/
+frontend/.env
+
+# 🧪 테스트 관련 무시
+**/__tests__/
+**/*.test.js
+**/*.spec.js
+coverage/
