@@ -1,0 +1,46 @@
+.card-starbucks {
+    background-color: #f0f9f7;
+    border-left: 5px solid #00704a;
+  }
+  
+  .card-baemin {
+    background-color: #e0f7ff;
+    border-left: 5px solid #00c4c4;
+  }
+  
+  .card-ediya {
+    background-color: #f2f0ff;
+    border-left: 5px solid #4b3ca7;
+  }
+  
+  .card-marketcurly {
+    background-color: #fff0f6;
+    border-left: 5px solid #ff87b5;
+  }
+  
+  .card-twosome {
+    background-color: #fff6f0;
+    border-left: 5px solid #c92a2a;
+  }
+  
+  .card-default {
+    background-color: #f8f9fa;
+    border-left: 5px solid #adb5bd;
+  }
+  
+  .card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card-img-top {
+    height: 150px;
+    object-fit: cover; /* ✅ 공백 없애줌 */
+    border-radius: 8px;
+  }
+
+  .btn-favorite {
+    background-color: #dc3545;  /* Bootstrap의 danger 색상 */
+    color: white;
+    border: none;
+  }
