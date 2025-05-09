@@ -1,32 +1,32 @@
 // 📁 src/pages/LoginPage.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { loginUser } from '../services/userService'; // ✅ 서비스 분리
 
-const LoginPage = ({ setIsLoggedIn, setUsername }) => {   // 🔥 setUsername 추가
+const LoginPage = ({ setIsLoggedIn, setUsername }) => {
   const [usernameInput, setUsernameInput] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = async () => {
-    try {
-      const res = await axios.post('http://localhost:8080/api/user/login', { 
-        username: usernameInput, 
-        password 
-      });
+ const handleLogin = async () => {
+  try {
+    const res = await loginUser({ username: usernameInput, password });
 
-      // 🔥 로그인 성공 시
-      localStorage.setItem('token', res.data.token); // 예시로 token 저장
-      localStorage.setItem('username', usernameInput); // 🔥 username도 저장
-      setIsLoggedIn(true);
-      setUsername(usernameInput); // 🔥 App 상태에도 즉시 반영
-      alert('로그인 성공!');
-      navigate('/'); // 홈으로 이동
-    } catch (error) {
-      console.error(error);
-      alert('로그인 실패');
+    if (!res.success) {
+      throw new Error("❌ 아이디 또는 비밀번호가 틀렸습니다.");
     }
-  };
+
+    localStorage.setItem('token', res.token);
+    localStorage.setItem('username', usernameInput);
+    setIsLoggedIn(true);
+    setUsername(usernameInput);
+    alert('✅ 로그인 성공!');
+    navigate('/');
+  } catch (err) {
+    alert(err.message);
+  }
+};
+
 
   return (
     <div className="container mt-5">
