@@ -1,0 +1,155 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  position: relative;
+}
+
+#modal-root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: #ffffff;
+  color: #000000;
+  line-height: 1.6;
+}
+
+body.dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+body.dark input,
+body.dark textarea {
+  background-color: #1f1f1f;
+  color: #ffffff;
+  border: 1px solid #444;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+body.dark .card {
+  background-color: #1e1e1e;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  width: 320px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+body.dark .modal-content {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+body.dark .modal-content button {
+  background-color: #333;
+  color: #fff;
+}
+
+body.dark .modal-content button:hover {
+  background-color: #555;
+}
+
+/* ✅ 댓글 스타일 */
+.comment {
+  background-color: #f9f9f9;
+  color: #000;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-top: 8px;
+  font-size: 0.95rem;
+}
+
+.comment-meta {
+  font-size: 0.8rem;
+  color: gray;
+  margin-top: 4px;
+}
+
+/* ✅ 다크모드 댓글 스타일 */
+body.dark .comment {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+body.dark .comment-meta {
+  color: #ccc;
+}
