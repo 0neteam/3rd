@@ -44,7 +44,7 @@ out/
 Thumbs.db
 
 # 🔐 환경 변수 파일
-.env
+.envgit add .
 .env.*
 .env.local
 
@@ -58,3 +58,5 @@ frontend/.env
 **/*.test.js
 **/*.spec.js
 coverage/
+
+!init_data.sql
